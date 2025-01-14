@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moonlight Theme</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1B263B;
+            color: #E0FBFC;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation bar styling */
+        nav {
+            background-color: #1B263B;
+            padding: 30px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            margin-top: 50px;
+        }
+
+        nav a {
+            color: #E0FBFC;
+            margin: 0 25px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 15px 30px;
+            border: 2px solid #E0FBFC;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #A8DADC;
+            color: #1B263B;
+        }
+
+        /* Sections styling */
+        section {
+            padding: 100px 20px;
+            margin: 60px 0;
+            text-align: center;
+            font-size: 28px;
+            min-height: 100vh;
+        }
+
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .links a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #E0FBFC;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: 2px solid #E0FBFC;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .links a:hover {
+            background-color: #A8DADC;
+            color: #1B263B;
+        }
+
+        .follower {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            pointer-events: none;
+            transition: all 0.2s ease;
+        }
+
+        /* LinkedIn and GitHub styling */
+        .social-links a {
+            margin: 10px;
+            text-decoration: none;
+            color: #E0FBFC;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 12px 25px;
+            border: 2px solid #E0FBFC;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #A8DADC;
+            color: #1B263B;
+        }
+
+        .social-links {
+            margin-top: 40px;
+        }
+
+        .skills {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .skills a {
+            display: block;
+            margin: 15px 0;
+            text-decoration: none;
+            color: #E0FBFC;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 12px 30px;
+            width: 250px;
+            border: 2px solid #E0FBFC;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-align: center;
+        }
+
+        .skills a:hover {
+            background-color: #A8DADC;
+            color: #1B263B;
+        }
+
+        /* Education section */
+        #education {
+            text-align: center;
+        }
+
+        .timeline {
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .timeline-item {
+            padding: 20px;
+            background-color: #1B263B;
+            color: #E0FBFC;
+            border-radius: 6px;
+            position: relative;
+            width: 80%;
+            margin: 10px 0;
+        }
+
+        .timeline-item h3 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .timeline-item p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .timeline-item span {
+            font-size: 14px;
+            color: #A8DADC;
+        }
+
+        /* Contact section */
+        #contact .contact-info {
+            text-align: center;
+            font-size: 18px;
+        }
+
+        #contact .contact-info a {
+            color: #A8DADC;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        #contact .contact-info a:hover {
+            color: #E0FBFC;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        let colors = [
+            "#1B263B",  // Midnight Blue
+            "#415A77",  // Steel Blue
+            "#778DA9",  // Light Slate Blue
+            "#A8DADC",  // Pale Cyan Blue
+            "#E0FBFC",  // Light Cyan (almost white)
+            "#98C1D9",  // Soft Sky Blue
+            "#3D5A80"   // Dark Teal Blue
+        ];
+        let i = 0;
+
+        document.onmousemove = function(e) {
+            i++;
+            let x = e.pageX;
+            let y = e.pageY;
+
+            let span = document.createElement("span");
+            span.classList.add("follower");
+            span.style.top = y + "px";
+            span.style.left = x + "px";
+            span.style.backgroundColor = colors[i % colors.length]; 
+            document.body.appendChild(span);
+
+            setTimeout(() => {
+                span.remove();
+            }, 1000);
+        };
+
+        // Function to toggle About Me section
+        function showAboutMe() {
+            var aboutText = document.getElementById('aboutText');
+            aboutText.style.display = aboutText.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Sections -->
+    <section id="home">
+        <h1>I am R Neha sree</h1>
+        <h2>A BE CSE student at Jyothy Institute Of Technology </h2>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="links">
+            <a href="https://github.com/rnehasree-19/Tech_Titans-Samhara" target="_blank">Samhara Game</a>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills">
+            <a href="https://drive.google.com/file/d/1bjlIWeujX5mmLpUI2V8bCC1pWpkhYitb/view?usp=drive_link" target="_blank">Python (Udemy)</a>
+            <a href="https://drive.google.com/file/d/17uEcXWPpcgQ7iu9fPnK3oLq8WS9IyxJn/view?usp=drive_link" target="_blank">C Programming (W3Schools)</a>
+            <a href="https://drive.google.com/file/d/1ObkrZlX-LlmOe0UGECpzD7O_6Gd5mMEF/view?usp=drive_link" target="_blank">Web Front-End (College Workshop)</a>
+            <a href="https://drive.google.com/file/d/1Yr-SIK3Uqn4Azndtwqzs2BmvzwsU-myd/view?usp=drive_link" target="_blank">Blog Writing (Workshop)</a>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>10th - LRG Vidyalayam</h3>
+                <p><span>2021-22</span></p>
+            </div>
+            <div class="timeline-item">
+                <h3>Intermediate - LRG Naidu Junior College</h3>
+                <p><span>2022-2024</span></p>
+            </div>
+            <div class="timeline-item">
+                <h3>BE - Jyothy Institute of Technology</h3>
+                <p><span>2024-present</span></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>For collaboration, you can reach me at:</p>
+        <div class="contact-info">
+            <p>Phone: <a href="tel:+917013135012">+917013135012</a></p>
+            <p>Email: <a href="mailto:rnehasree@gmail.com">rnehasree@gmail.com</a></p>
+        </div>
+    
+        <!-- LinkedIn and GitHub Links -->
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/nehasree-r-55a22a308/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/rnehasree-19" target="_blank">GitHub</a>
+        </div>
+    </section>
+</body>
+</html>
